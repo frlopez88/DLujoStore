@@ -1,6 +1,4 @@
-﻿using DLujoStore.Services;
-using DLujoStore.Views;
-using System;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,13 +6,11 @@ namespace DLujoStore
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

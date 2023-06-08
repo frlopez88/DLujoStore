@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DLujoStore.MainPage"
+             xmlns:local="clr-namespace:DLujoStore.ViewModels"
+             >
+
+    <ContentPage.BindingContext>
+        <local:viewModelMainPage></local:viewModelMainPage>
+    </ContentPage.BindingContext>
+
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+        <Label Text="Iniciar Sesión" HorizontalOptions="Center" FontSize="24" FontAttributes="Bold" Margin="0,0,0,20" />
+
+        <Entry Text="{Binding NombreUsuario}"  Placeholder="Nombre de Usuario" Keyboard="Email" Margin="0,0,0,10" />
+        <Entry Text="{Binding Contrasenia}" Placeholder="Contraseña" IsPassword="True" Margin="0,0,0,20" />
+
+        <Button Command="{Binding autenticacion}" Text="Iniciar Sesión" BackgroundColor="#2196F3" TextColor="White" />
+
+        <Label Text="{Binding ResultAuth}" TextColor="#2196F3" HorizontalOptions="Center" Margin="0,20,0,0">
+            
+        </Label>
+    </StackLayout>
+
+</ContentPage>
