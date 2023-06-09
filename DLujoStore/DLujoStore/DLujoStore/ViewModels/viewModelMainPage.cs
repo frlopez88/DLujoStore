@@ -1,4 +1,5 @@
 ﻿using DLujoStore.Models;
+using DLujoStore.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,8 @@ namespace DLujoStore.ViewModels
                 if (auth.items.Count == 0)
                 {
 
-                    ResultAuth = "Autenticacion Erronea";
+                    var pagina = new viewCategorias();
+                    Application.Current.MainPage.Navigation.PushAsync(pagina);
 
                 }
                 else {
@@ -42,6 +44,17 @@ namespace DLujoStore.ViewModels
                 
                 
             });
+
+
+            redirigirCrearUsuario = new Command(() => {
+
+
+                var pagina = new viewCreacionUsuarios();
+                Application.Current.MainPage.Navigation.PushAsync(pagina);
+
+                
+            } );
+
 
         }
 
@@ -87,6 +100,8 @@ namespace DLujoStore.ViewModels
         }
 
         public Command autenticacion { get; }
+
+        public Command redirigirCrearUsuario { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

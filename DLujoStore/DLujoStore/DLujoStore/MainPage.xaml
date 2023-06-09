@@ -17,6 +17,8 @@
 
         <Button Command="{Binding autenticacion}" Text="Iniciar Sesión" BackgroundColor="#2196F3" TextColor="White" />
 
+        <Button Command="{Binding redirigirCrearUsuario}" Text="Crear Usuario" BackgroundColor="#2196F3" TextColor="White" />
+
         <Label Text="{Binding ResultAuth}" TextColor="#2196F3" HorizontalOptions="Center" Margin="0,20,0,0">
             
         </Label>
