@@ -25,14 +25,24 @@ namespace DLujoStore.ViewModels
 
             foreach (ItemCategoria x in responseCategoria.items) {
 
-                listaCategorias.Add(x);
+                GetCategoriasImagen imgTmp = new GetCategoriasImagen() { 
+                
+                    id = x.id,
+                    nombre =x.nombre,
+                    fotoBase64 = x.foto
+                    
+                };
+
+                imgTmp.convertirImagen();
+
+                listaCategorias.Add(imgTmp);
 
 
             }
 
         }
 
-        public ObservableCollection<ItemCategoria> listaCategorias { get; set; } = new ObservableCollection<ItemCategoria>();
+        public ObservableCollection<GetCategoriasImagen> listaCategorias { get; set; } = new ObservableCollection<GetCategoriasImagen>();
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

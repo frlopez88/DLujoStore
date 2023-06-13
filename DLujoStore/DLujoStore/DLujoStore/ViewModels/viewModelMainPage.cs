@@ -26,8 +26,7 @@ namespace DLujoStore.ViewModels
                 if (auth.items.Count == 0)
                 {
 
-                    var pagina = new viewCategorias();
-                    Application.Current.MainPage.Navigation.PushAsync(pagina);
+                    ResultAuth = "Autenticacion Fallida";
 
                 }
                 else {
@@ -35,6 +34,9 @@ namespace DLujoStore.ViewModels
                     if (auth.items[0].es_valido == 1)
                     {
                         ResultAuth = "Autenticacion Exitosa";
+
+                        var pagina = new viewCategorias();
+                        Application.Current.MainPage.Navigation.PushAsync(pagina);
 
                     }
 

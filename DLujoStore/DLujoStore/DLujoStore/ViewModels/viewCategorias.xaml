@@ -12,30 +12,24 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView  ItemsSource="{Binding listaCategorias}" SelectionMode="Single" >
-
+            <CollectionView ItemsSource="{Binding listaCategorias}" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-
-                        <Grid Padding="10">
+                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-
-                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding id }" ></Label>
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding nombre}"></Label>
-                            
+                            <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Text="{Binding nombre}" />
+                            <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Source="{Binding imagen}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
