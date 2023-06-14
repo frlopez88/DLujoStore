@@ -1,9 +1,11 @@
 ﻿using DLujoStore.Models;
+using DLujoStore.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace DLujoStore.ViewModels
 {
@@ -13,6 +15,17 @@ namespace DLujoStore.ViewModels
 
 
             cargarCategorias();
+
+            SelecccionCategoria = new Command(() => {
+
+                var pagina = new viewArticulos();
+                var viewModelPagina = new viewModelArticulosCategoria(CategoriaSeleccionada.id);
+                pagina.BindingContext = viewModelPagina;
+
+                Application.Current.MainPage.Navigation.PushAsync(pagina);
+
+
+            } );
 
 
         }
@@ -42,7 +55,26 @@ namespace DLujoStore.ViewModels
 
         }
 
+        GetCategoriasImagen categoriaSeleccionada;
+
+        public GetCategoriasImagen CategoriaSeleccionada {
+
+            get => categoriaSeleccionada;
+
+            set {
+
+                categoriaSeleccionada = value;
+                var args = new PropertyChangedEventArgs(nameof(CategoriaSeleccionada));
+                PropertyChanged?.Invoke(this, args);
+
+
+
+            }
+        }
+
         public ObservableCollection<GetCategoriasImagen> listaCategorias { get; set; } = new ObservableCollection<GetCategoriasImagen>();
+
+        public Command SelecccionCategoria { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

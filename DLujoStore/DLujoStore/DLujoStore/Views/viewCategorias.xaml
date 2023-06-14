@@ -12,7 +12,11 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView ItemsSource="{Binding listaCategorias}" SelectionMode="Single">
+            <CollectionView ItemsSource="{Binding listaCategorias}" 
+                            SelectionMode="Single" 
+                            SelectedItem="{ Binding CategoriaSeleccionada }"
+                            SelectionChangedCommand="{Binding SelecccionCategoria}"
+                            >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
